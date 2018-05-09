@@ -90,8 +90,8 @@ public class GlobeSortServer {
             long startTime = System.nanoTime();
             Arrays.sort(values);
             long endTime = System.nanoTime() - startTime;
-            responseObserver.onNext(endTime);
             IntArray.Builder responseBuilder = IntArray.newBuilder();
+            responseBuilder.addValues(endTime);
             for(Integer val : values) {
                 responseBuilder.addValues(val);
             }
